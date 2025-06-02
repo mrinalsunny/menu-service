@@ -1,26 +1,24 @@
-#
-#spring:
-#  application:
-#    name: menu-service
-#  config:
-#    import: "consul:"
-#
-#  cloud:
-#    consul:
-#      host: localhost
-#      port: 8500
-##      config:
-##        enabled: true
-##        format: yaml
-##        prefix: config
-##        default-context: application
-##        profile-separator: '-'
-##        data-key: data
-#      discovery:
+
+spring:
+  application:
+    name: menu-service
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+#      config:
 #        enabled: true
-#        register: true
-#        prefer-ip-address: true
-#        health-check-path: /actuator/health
-#        health-check-interval: 10s
-#
-#
+#        format: yaml
+#        prefix: config
+#        default-context: application
+#        profile-separator: '-'
+#        data-key: data
+      discovery:
+        enabled: true
+        register: true
+        prefer-ip-address: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+
+
