@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: menuservice_db
+      username: devuser
+      password: devpassword
+      authentication-database: admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+
+#spring:
+#  config:
+#    import: "consul:"
+#
+#debug: true
