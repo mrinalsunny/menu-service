@@ -36,6 +36,7 @@ public class CategoryDocument extends BaseDocument {
     private String description;
 
     @Field("display_order")
+    @Builder.Default
     private Integer displayOrder = 0;
 
     @Field("is_active")

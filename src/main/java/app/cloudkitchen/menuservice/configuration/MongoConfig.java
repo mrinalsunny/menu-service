@@ -3,6 +3,7 @@ package app.cloudkitchen.menuservice.configuration;
 import org.bson.types.Decimal128;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;
 import org.springframework.data.convert.WritingConverter;
@@ -20,7 +21,7 @@ import java.util.List;
 // MongoDB Configuration
 @Configuration
 @EnableMongoRepositories(basePackages = "app.cloudkitchen.menuservice.repository")
-//@EnableMongoAuditing
+@EnableMongoAuditing
 public class MongoConfig {
 
     @Bean
@@ -29,6 +30,7 @@ public class MongoConfig {
     }
 
 //    @Bean
+//    @Primary
 //    public AuditorAware<String> auditorProvider() {
 //        return new SpringSecurityAuditorAware();
 //    }
