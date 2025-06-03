@@ -20,7 +20,7 @@ import java.util.List;
 // MongoDB Configuration
 @Configuration
 @EnableMongoRepositories(basePackages = "app.cloudkitchen.menuservice.repository")
-@EnableMongoAuditing
+//@EnableMongoAuditing
 public class MongoConfig {
 
     @Bean
@@ -28,10 +28,10 @@ public class MongoConfig {
         return new MongoTransactionManager(factory);
     }
 
-    @Bean
-    public AuditorAware<String> auditorProvider() {
-        return new SpringSecurityAuditorAware();
-    }
+//    @Bean
+//    public AuditorAware<String> auditorProvider() {
+//        return new SpringSecurityAuditorAware();
+//    }
 
     @Bean
     public MongoCustomConversions mongoCustomConversions() {

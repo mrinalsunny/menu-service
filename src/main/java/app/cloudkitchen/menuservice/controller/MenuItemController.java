@@ -7,6 +7,7 @@ import app.cloudkitchen.menuservice.dto.PopularMenuItem;
 import app.cloudkitchen.menuservice.exception.MenuItemNotFoundException;
 import app.cloudkitchen.menuservice.service.MenuItemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/menu-items")
 @RequiredArgsConstructor
+@RefreshScope
 public class MenuItemController {
 
     private final MenuItemService menuItemService;

@@ -4,18 +4,27 @@ server:
 spring:
   application:
     name: menu-service
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: menuservice_db
-      username: devuser
-      password: devpassword
-      authentication-database: admin
+  config:
+    import: "consul:"
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: menuservice_db
+#      username: devuser
+#      password: devpassword
+#      authentication-database: admin
   cloud:
     consul:
       host: localhost
       port: 8500
+      config:
+        enabled: true
+        format: yaml
+        prefix: config
+        default-context: menu-service
+        profile-separator: '-'
+        data-key: application.yml
       discovery:
         enabled: true
         register: true
@@ -27,11 +36,14 @@ management:
   endpoints:
     web:
       exposure:
-        include: health
+        include: health, env, configprops
 
-
-#spring:
-#  config:
-#    import: "consul:"
-#
 #debug: true
+#logging:
+#    level:
+#        org.springframework.cloud.consul: DEBUG
+#        org.springframework.cloud.consul.discovery: DEBUG
+#        org.springframework.cloud.consul.config: DEBUG
+#        org.springframework.cloud.consul.endpoint: DEBUG
+#        org.springframework.cloud.consul.serviceregistry: DEBUG
+#        org.springframework.cloud.consul.config.ConsulPropertySourceLocator: DEBUG
