@@ -22,21 +22,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                bat 'mvn clean install'
+                bat './mvnw clean install'
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                bat 'mvn test'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Running tests...'
+        //         bat './mvnw test'
+        //     }
+        // }
 
         stage('Package') {
             steps {
                 echo 'Packaging application...'
-                bat 'mvn package -DskipTests'
+                bat './mvnw package -DskipTests'
             }
         }
 
