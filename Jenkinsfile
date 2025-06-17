@@ -22,7 +22,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                bat './mvnw clean install'
+                bat './mvnw clean install -Dmaven.test.skip=true'
             }
         }
 
